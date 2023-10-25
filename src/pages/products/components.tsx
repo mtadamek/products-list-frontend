@@ -1,39 +1,39 @@
 import styled from "styled-components";
 
 export const Header = styled.div`
-  width: 100v;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
   background-color: white;
-  padding: 15px 30px 15px 30px;
+  padding: 15px 0px;
   font-size: large;
   box-shadow: 0px 2px 2px #ddd;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 `;
 
-export const Content = styled.div`
-  padding-inline: 10px;
-  flex: 1;
-  display: flex;
-  justify-content: center;
-`;
-
-export const List = styled.ul`
-  list-style: none;
-`;
-
-export const ListItem = styled.li`
-  padding: 10px 15px;
-  background-color: rgb(255, 255, 255);
-  border-radius: 5px;
-  margin-top: 10px;
-  width: 700px;
-  box-shadow: 0px 2px 2px #ddd;
+export const HeaderContent = styled.div`
+  width: 800px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  padding: 0px 5px;
+`;
+
+export const Content = styled.div`
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+`;
+
+export const List = styled.ul`
+  list-style: none;
+  padding: 0px;
 `;
 
 export const Button = styled.button`
@@ -50,16 +50,6 @@ export const Button = styled.button`
   &:active {
     opacity: 0.8;
   }
-`;
-
-export const RemoveButton = styled(Button)`
-  margin-left: 5px;
-  background-color: #f08080;
-`;
-
-export const Actions = styled.div`
-  display: flex;
-  flex-direction: row;
 `;
 
 export const Spinner = styled.div`

@@ -1,15 +1,14 @@
 import React from "react";
 import {
-  Actions,
   Button,
   Content,
   Header,
+  HeaderContent,
   List,
-  ListItem,
-  RemoveButton,
   Spinner,
 } from "../components";
 import useProductsData from "../hooks/useProductsData";
+import ListItem from "./ListItem";
 
 const ProductsList = () => {
   const { products, isLoading } = useProductsData();
@@ -17,8 +16,10 @@ const ProductsList = () => {
   return (
     <>
       <Header>
-        Lista produktów
-        <Button>Dodaj product</Button>
+        <HeaderContent>
+          Lista produktów
+          <Button>Dodaj product</Button>
+        </HeaderContent>
       </Header>
       <Content>
         {isLoading ? (
@@ -26,13 +27,7 @@ const ProductsList = () => {
         ) : (
           <List>
             {products.map((product) => (
-              <ListItem key={product.id}>
-                {product.name}
-                <Actions>
-                  <Button>Edytuj</Button>
-                  <RemoveButton>Usuń</RemoveButton>
-                </Actions>
-              </ListItem>
+              <ListItem key={product.id} product={product} />
             ))}
           </List>
         )}

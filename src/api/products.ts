@@ -7,3 +7,9 @@ export const getProducts = (): Promise<IResponseData<IProduct[]>> =>
     .get("/products")
     .then(({ status, data }: AxiosResponse) => ({ status, data }))
     .catch(({ response }: AxiosError) => ({ status: response?.status }));
+
+export const deleteProduct = (id: number): Promise<number | undefined> =>
+  axios
+    .delete(`/products/${id}`)
+    .then(({ status }: AxiosResponse) => status)
+    .catch(({ response }: AxiosError) => response?.status);
