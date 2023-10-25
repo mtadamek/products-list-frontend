@@ -1,18 +1,12 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import styled from "styled-components";
-
-const Container = styled.div`
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-`;
+import { MainContainer } from "./components";
 
 const ProductsPage = () => {
   return (
-    <Container>
+    <MainContainer>
       <Outlet />
-    </Container>
+    </MainContainer>
   );
 };
 

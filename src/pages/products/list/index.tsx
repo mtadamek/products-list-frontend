@@ -7,7 +7,7 @@ import {
   List,
   Spinner,
 } from "../components";
-import useProductsData from "../hooks/useProductsData";
+import { useProductsData } from "./hooks";
 import ListItem from "./ListItem";
 
 const ProductsList = () => {
