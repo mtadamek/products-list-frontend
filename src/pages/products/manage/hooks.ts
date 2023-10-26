@@ -12,9 +12,12 @@ import useAppSelector from "../../../utils/appHooks/useAppSelector";
 import useGetData from "../../../utils/appHooks/useGetData";
 import useEditData from "../../../utils/appHooks/useEditData";
 import { SUCCESS_HTTP_CODES } from "../../../constants";
+import formValidations from "../../../utils/formValidations";
+import useAppDispatch from "../../../utils/appHooks/useAppDispatch";
 
 const useProductManageData = () => {
   const { productId } = useParams();
+  const dispatch = useAppDispatch();
   const { isError: isGetError, getData } = useGetData(
     getProduct,
     setCurrentProduct
@@ -37,13 +40,17 @@ const useProductManageData = () => {
     [productId, currentProduct]
   );
 
-  const isSaveing = isCreating || isEditing;
+  const isSaveing = React.useMemo(
+    () => isCreating || isEditing,
+    [isCreating, isEditing]
+  );
 
   const saveResponseStatus = createResponseStatus || editResponseStatus;
 
   const navigate = useNavigate();
 
   const goBack = () => {
+    dispatch(setCurrentProduct(undefined));
     navigate("..");
   };
 
@@ -56,13 +63,14 @@ const useProductManageData = () => {
       category: 0,
       description: "",
     },
+    validate: formValidations.products,
     onSubmit: (values) => {
       productId ? editData(values) : createData(values);
     },
   });
 
   useEffect(() => {
-    if (currentProduct) {
+    if (currentProduct && productId) {
       formik.setValues({ ...currentProduct, description: "" });
     } else if (productId) {
       getData(Number(productId));
@@ -88,7 +96,7 @@ const useProductManageData = () => {
 
   return {
     formik,
-    isSaveing: isCreating || isEditing,
+    isSaveing,
     isInted,
     handleBackClick: goBack,
   };

@@ -5,8 +5,6 @@ const store = configureStore({
   reducer: { products },
 });
 
-store.subscribe(() => console.log(store.getState()));
-
 export default store;
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;

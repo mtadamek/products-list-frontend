@@ -7,9 +7,14 @@ export const Form = styled.form`
   flex-direction: column;
 `;
 
+export const InputContainer = styled.div`
+  margin: 3px 0px 10px 0px;
+  display: flex;
+  flex-direction: column;
+`;
+
 export const Input = styled.input`
   width: 400px;
-  margin: 3px 0px 10px 0px;
   padding: 6px 10px;
   border-radius: 5px;
   border-width: 0px;
@@ -17,9 +22,14 @@ export const Input = styled.input`
   font-size: small;
 `;
 
+export const ValidationError = styled.div`
+  font-size: small;
+  color: #f08080;
+  margin-top: 2px;
+`;
+
 export const Select = styled.select`
   width: 420px;
-  margin: 3px 0px 10px 0px;
   padding: 6px 10px;
   border-radius: 5px;
   border-width: 0px;
