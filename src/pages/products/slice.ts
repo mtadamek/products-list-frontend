@@ -17,6 +17,19 @@ const productsListSlice = createSlice({
     setProductsList: (state, action: PayloadAction<IProduct[] | undefined>) => {
       state.list = action.payload || [];
     },
+    deleteProduct: (state, action: PayloadAction<number>) => {
+      state.list = state.list.filter(
+        (product) => product.id !== action.payload
+      );
+    },
+    addProduct: (state, action: PayloadAction<IProduct>) => {
+      state.list = [...state.list, action.payload];
+    },
+    editProduct: (state, action: PayloadAction<IProduct>) => {
+      state.list = state.list.map((product) =>
+        product.id === action.payload.id ? action.payload : product
+      );
+    },
     setCurrentProduct: (state, action: PayloadAction<IProduct | undefined>) => {
       state.current = action.payload;
     },
@@ -24,4 +37,10 @@ const productsListSlice = createSlice({
 });
 
 export default productsListSlice.reducer;
-export const { setProductsList, setCurrentProduct } = productsListSlice.actions;
+export const {
+  setProductsList,
+  deleteProduct,
+  addProduct,
+  editProduct,
+  setCurrentProduct,
+} = productsListSlice.actions;

@@ -33,7 +33,9 @@ export const HeaderContent = styled.div`
 export const Content = styled.div`
   flex: 1;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   padding-top: 50px;
 `;
 
@@ -50,7 +52,9 @@ export const Button = styled.button`
   padding: 8px 12px;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: medium;
   cursor: pointer;
   &:active {
@@ -59,7 +63,7 @@ export const Button = styled.button`
 `;
 
 export const Spinner = styled.div`
-  margin: 20px;
+  margin: 30px;
   border: 5px solid #f3f3f3;
   border-top: 5px solid #8fbc8f;
   border-radius: 50%;

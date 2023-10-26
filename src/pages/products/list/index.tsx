@@ -11,14 +11,14 @@ import { useProductsData } from "./hooks";
 import ListItem from "./ListItem";
 
 const ProductsList = () => {
-  const { products, isLoading } = useProductsData();
+  const { products, isLoading, handleAddProduct } = useProductsData();
 
   return (
     <>
       <Header>
         <HeaderContent>
           Lista produktów
-          <Button>Dodaj product</Button>
+          <Button onClick={handleAddProduct}>Dodaj product</Button>
         </HeaderContent>
       </Header>
       <Content>

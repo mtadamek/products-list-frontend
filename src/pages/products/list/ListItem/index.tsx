@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Button } from "../../components";
 import { IListItemProps } from "./ListItem.d";
 import {
@@ -11,9 +11,10 @@ import {
   Header,
   NameContainer,
   RemoveButton,
-} from "./components";
-
-const CATEGORIES = ["smartfony", "laptopy", "wyświetlacze"];
+  Spinner,
+} from "../components";
+import { useListItemData } from "../hooks";
+import { CATEGORIES } from "../../../../constants";
 
 const getCategoryName = (id: number) => {
   if (id > CATEGORIES.length || id < 0) {
@@ -23,23 +24,23 @@ const getCategoryName = (id: number) => {
 };
 
 const ListItem = ({ product }: IListItemProps) => {
-  const [isDetailsVisible, setIsDetailsVisible] = useState(false);
-
-  const handleItemClick = () => {
-    setIsDetailsVisible(!isDetailsVisible);
-  };
-
-  const handleDeleteClick = async () => {
-    console.log("DELETE ", product.id);
-  };
+  const {
+    isDetailsVisible,
+    isDeleting,
+    handleDeleteClick,
+    handleItemClick,
+    handleEditProduct,
+  } = useListItemData();
 
   return (
     <Container>
       <Header>
         <NameContainer onClick={handleItemClick}>{product.name}</NameContainer>
         <Actions>
-          <Button>Edytuj</Button>
-          <RemoveButton onClick={handleDeleteClick}>Usuń</RemoveButton>
+          <Button onClick={() => handleEditProduct(product)}>Edytuj</Button>
+          <RemoveButton onClick={() => handleDeleteClick(product.id)}>
+            {isDeleting ? <Spinner /> : "Usuń"}
+          </RemoveButton>
         </Actions>
       </Header>
       {isDetailsVisible && (
@@ -55,7 +56,7 @@ const ListItem = ({ product }: IListItemProps) => {
             </tr>
             <tr>
               <DetailsTd>{product.name}</DetailsTd>
-              <DetailsTd>{product.price.toFixed(2)}</DetailsTd>
+              <DetailsTd>{product.price.toFixed(2)} zł</DetailsTd>
               <DetailsTd>{product.count} szt.</DetailsTd>
               <DetailsTd>{product.date.toString()}</DetailsTd>
               <DetailsTd>{getCategoryName(product.category)}</DetailsTd>

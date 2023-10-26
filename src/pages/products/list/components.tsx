@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Button } from "../../components";
+import { Button, Spinner as MainSpinner } from "../components";
 
 export const Container = styled.li`
   background-color: white;
@@ -60,4 +60,13 @@ export const DetailsTh = styled.th`
   border-bottom: 1px solid #efefef;
   text-align: left;
   padding: 10px;
+`;
+
+export const Spinner = styled(MainSpinner)`
+  margin: 0px;
+  border: 2px solid #fff8;
+  border-top: 2px solid white;
+  width: 15px;
+  height: 15px;
+  margin: 0px 9px;
 `;
