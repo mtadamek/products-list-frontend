@@ -22,12 +22,15 @@ export const Header = styled.div`
 `;
 
 export const HeaderContent = styled.div`
-  width: 800px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding: 0px 5px;
+  width: 100%;
+  @media only screen and (min-width: 768px) {
+    width: 768px;
+  }
 `;
 
 export const Content = styled.div`
@@ -42,6 +45,10 @@ export const Content = styled.div`
 export const List = styled.ul`
   list-style: none;
   padding: 0px;
+  width: 100%;
+  @media only screen and (min-width: 768px) {
+    width: 768px;
+  }
 `;
 
 export const Button = styled.button`

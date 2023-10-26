@@ -5,21 +5,33 @@ export const Form = styled.form`
   margin-top: 30px;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  @media only screen and (min-width: 470px) {
+    width: 450px;
+  }
 `;
 
 export const InputContainer = styled.div`
   margin: 3px 0px 10px 0px;
   display: flex;
   flex-direction: column;
+  width: 100%;
 `;
 
 export const Input = styled.input`
-  width: 400px;
   padding: 6px 10px;
   border-radius: 5px;
   border-width: 0px;
   box-shadow: 0px 2px 2px #ddd;
   font-size: small;
+  float: left;
+`;
+
+export const Label = styled.label`
+  padding: 0px 5px;
+  @media only screen and (min-width: 470px) {
+    padding: 0px;
+  }
 `;
 
 export const ValidationError = styled.div`
@@ -29,7 +41,6 @@ export const ValidationError = styled.div`
 `;
 
 export const Select = styled.select`
-  width: 420px;
   padding: 6px 10px;
   border-radius: 5px;
   border-width: 0px;

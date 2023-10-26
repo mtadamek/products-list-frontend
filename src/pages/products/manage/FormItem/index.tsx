@@ -1,5 +1,11 @@
 import React from "react";
-import { Input, InputContainer, Select, ValidationError } from "../components";
+import {
+  Input,
+  InputContainer,
+  Label,
+  Select,
+  ValidationError,
+} from "../components";
 import { IFormItemProps } from "./FormItem.d";
 import { CATEGORIES } from "../../../../constants";
 
@@ -12,7 +18,7 @@ const FormItem = ({
 }: IFormItemProps) => {
   return (
     <>
-      <label htmlFor="name">{name}</label>
+      <Label htmlFor={propName}>{name}</Label>
       <InputContainer>
         {type === "input" && (
           <Input

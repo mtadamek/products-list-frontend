@@ -5,7 +5,6 @@ export const Container = styled.li`
   background-color: white;
   border-radius: 5px;
   margin-top: 10px;
-  width: 800px;
   box-shadow: 0px 2px 2px #ddd;
   display: flex;
   flex-direction: column;
@@ -42,7 +41,7 @@ export const NameContainer = styled.div`
 export const Details = styled.div`
   font-size: small;
   border-top: solid;
-  border-top-width: 2px;
+  border-top-width: 1px;
   border-color: #efefef;
 `;
 
@@ -52,12 +51,13 @@ export const DetailsTable = styled.table`
 `;
 
 export const DetailsTd = styled.td`
+  border-top: 1px solid #efefef;
   text-align: left;
   padding: 10px;
 `;
 
 export const DetailsTh = styled.th`
-  border-bottom: 1px solid #efefef;
+  border-top: 1px solid #efefef;
   text-align: left;
   padding: 10px;
 `;

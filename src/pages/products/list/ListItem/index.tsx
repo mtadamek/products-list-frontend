@@ -50,14 +50,18 @@ const ListItem = ({ product }: IListItemProps) => {
               <DetailsTh>Nazwa</DetailsTh>
               <DetailsTh>Cena</DetailsTh>
               <DetailsTh>Ilość w magazynia</DetailsTh>
-              <DetailsTh>Data produkcji</DetailsTh>
-              <DetailsTh>Kategoria</DetailsTh>
-              <DetailsTh>Opis</DetailsTh>
             </tr>
             <tr>
               <DetailsTd>{product.name}</DetailsTd>
               <DetailsTd>{product.price.toFixed(2)} zł</DetailsTd>
               <DetailsTd>{product.count} szt.</DetailsTd>
+            </tr>
+            <tr>
+              <DetailsTh>Data produkcji</DetailsTh>
+              <DetailsTh>Kategoria</DetailsTh>
+              <DetailsTh>Opis</DetailsTh>
+            </tr>
+            <tr>
               <DetailsTd>{product.date.toString()}</DetailsTd>
               <DetailsTd>{getCategoryName(product.category)}</DetailsTd>
               <DetailsTd>{product.description || "-"}</DetailsTd>
