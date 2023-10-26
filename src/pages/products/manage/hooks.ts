@@ -84,13 +84,13 @@ const useProductManageData = () => {
   }, [isGetError]);
 
   useEffect(() => {
-    if (
-      !isSaveing &&
-      saveResponseStatus &&
-      SUCCESS_HTTP_CODES.includes(saveResponseStatus)
-    ) {
-      alert("Zapisano pomyślnie!");
-      goBack();
+    if (!isSaveing && saveResponseStatus) {
+      if (SUCCESS_HTTP_CODES.includes(saveResponseStatus)) {
+        alert("Zapisano pomyślnie!");
+        goBack();
+      } else {
+        alert("Błąd podczas zapisu");
+      }
     }
   }, [isSaveing, saveResponseStatus]);
 

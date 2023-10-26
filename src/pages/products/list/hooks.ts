@@ -24,11 +24,17 @@ export const useProductsData = () => {
     }
   }, []);
 
+  useEffect(() => {
+    if (isError) {
+      alert("Błąd pobierania danych");
+    }
+  }, [isError]);
+
   const handleAddProduct = () => {
     navigate("/products/add");
   };
 
-  return { products, isLoading, isError, handleAddProduct };
+  return { products, isLoading, handleAddProduct };
 };
 
 export const useListItemData = () => {
@@ -53,9 +59,14 @@ export const useListItemData = () => {
     navigate(`/products/${product.id}/edit`);
   };
 
+  useEffect(() => {
+    if (isError) {
+      alert("Błąd podczas usuwania produktu");
+    }
+  }, [isError]);
+
   return {
     isDeleting,
-    isError,
     isDetailsVisible,
     handleDeleteClick,
     handleItemClick,
