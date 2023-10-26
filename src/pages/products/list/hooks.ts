@@ -50,7 +50,7 @@ export const useListItemData = () => {
 
   const handleEditProduct = (product: IProduct) => {
     dispatch(setCurrentProduct(product));
-    navigate(`/products/edit/${product.id}`);
+    navigate(`/products/${product.id}/edit`);
   };
 
   return {

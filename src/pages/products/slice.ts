@@ -23,7 +23,9 @@ const productsListSlice = createSlice({
       );
     },
     addProduct: (state, action: PayloadAction<IProduct>) => {
-      state.list = [...state.list, action.payload];
+      if (state.list.length > 0) {
+        state.list = [...state.list, action.payload];
+      }
     },
     editProduct: (state, action: PayloadAction<IProduct>) => {
       state.list = state.list.map((product) =>
