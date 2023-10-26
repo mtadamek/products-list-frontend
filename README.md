@@ -26,3 +26,9 @@ lub w trybie produkcyjnym
   npm install -g serve
   serve -s build -l 3000
 ```
+
+Aby uruchomić testy należy wykonać
+
+```bash
+  yarn run test
+```
